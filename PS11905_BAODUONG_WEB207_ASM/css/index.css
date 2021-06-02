@@ -1,0 +1,23 @@
+
+header{
+    height: auto;
+
+}
+
+
+
+
+nav.row { 
+    height: 60px; 
+    background-color: yellow; 
+}  
+    
+
+     .row > article {
+          min-height: 300px;
+           background-color: darkgrey;
+      }
+       .row > aside { min-height: 3e0px;
+         background-color: darkgrey;
+        }
+

@@ -1,0 +1,79 @@
+<!doctype html> <html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel ="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel ="stylesheet" href="css/dangnhap.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <title>Quên mật khẩu</title>
+  </head>
+  <body ng-app = "myapp">
+    <div class="container-fluid" ng-controller = "myctrl">
+      <div class="row no-gutter">
+        <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
+        <div class="col-md-8 col-lg-6">
+          <div class="login d-flex align-items-center py-5">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-9 col-lg-8 mx-auto">
+                  <h3 class="login-heading mb-4 text-center">Đổi mật khẩu</h3>
+                  <form name="frmBonus">
+                    <div class="form-label-group">
+                      <input type="password" ng-model = "student.passwordHT" id="inputEmail" name="txtMatKhau" class="form-control" placeholder="Mật khẩu hiện tại" required>
+                      <label for="inputEmail">Mật khẩu hiện tại</label>
+                      <span ng-show="frmBonus.txtMatKhau.$invalid" class="badge badge-danger ml-3">Vui lòng nhập mật khẩu hiện tại</span>
+                    </div>
+                    <div class="form-label-group">
+                      <input type="password" ng-model = "student.passwordNew" id="inputPassN" name="txtMatKhauMoi" class="form-control" placeholder="Mật khẩu mới " required>
+                      <label for="inputPassN">Mật khẩu Mới</label>
+                      <span ng-show="frmBonus.txtMatKhauMoi.$invalid" class="badge badge-danger ml-3">Vui lòng nhập mật khẩu mới</span>
+                    </div>
+                    <div class="form-label-group">
+                      <input type="password" ng-model = "student.passwordCf" id="inputPXN" name="txtMatKhauXN" class="form-control" placeholder="Xác nhận mật khẩu" required >
+                      <label for="inputPXN">Xác nhận mật khẩu</label>
+                      <span ng-show="frmBonus.txtMatKhauXN.$invalid" class="badge badge-danger ml-3">Vui lòng xác nhận mật khẩu </span>
+                    </div>
+                    <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit" ng-click="change()" >ĐỔI MẬT KHẨU</button>
+                    <div class="text-center">
+                      <a class="small" href="login.html">Đăng Nhập</a></div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+  </body>
+            <!-- Script AnguLarJG  -->
+  <script>
+    var app = angular.module("myapp",[]);
+    app.controller("myctrl", function($scope){
+      $scope.change = function(){
+        console.log($scope.student.passwordHT);
+          if($scope.student.passwordCf == $scope.student.passwordNew){
+            Swal.fire(
+                'Thành Công',
+                'Đổi mật khẩu thành công!',
+                'success'
+              ) 
+          }else{
+            Swal.fire({
+                icon: 'error',
+                title: 'Mật khẩu không trùng khớp',
+                text: 'Mật khẩu mới và mật khẩu xác nhận phải trùng khớp!' 
+              })
+          }
+      }
+    });
+  </script>
+
+</html>
+<!-- Optional JavaScript:  jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"> </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" > </script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"> </script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
